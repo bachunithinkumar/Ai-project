@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind AI | Document Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <h2>📄 DocuMind AI</h2>
+                <p>Intelligent Document Assistant</p>
+            </div>
+            <span class="label">YOUR AI DOCUMENT WORKSPACE</span>
+        </header>
+
+        <section class="hero">
+            <p class="eyebrow">✦ AI-POWERED DOCUMENT INTELLIGENCE</p>
+            <h1>Chat smarter with <span>your documents.</span></h1>
+            <p>Upload PDFs and get answers powered by RAG and local AI.</p>
+        </section>
+
+        <main class="dashboard">
+            <section class="card upload-card">
+                <h2>📤 Upload Documents</h2>
+                <p class="subtitle">Upload up to 5 PDF files, 10 MB each.</p>
+
+                <form id="uploadForm">
+                    <label for="pdfFile" class="file-label">
+                        📄 <span id="fileName">Choose your PDF</span>
+                    </label>
+                    <input type="file" id="pdfFile" name="pdf"
+                           accept=".pdf,application/pdf" required>
+                    <button type="submit" id="uploadButton" class="primary">
+                        Upload &amp; Process PDF
+                    </button>
+                </form>
+
+                <div id="uploadStatus" role="status"></div>
+                <div id="documentInfo"></div>
+
+                <h3>📚 Uploaded Documents</h3>
+                <div id="documentList">
+                    <p class="subtitle">No documents uploaded yet.</p>
+                </div>
+            </section>
+
+            <section class="card chat-card">
+                <div class="chat-header">
+                    <div>
+                        <h2>🤖 AI Assistant</h2>
+                        <p>Day 10 — Complete Document Assistant</p>
+                    </div>
+                    <span class="ai-badge">● Local AI</span>
+                </div>
+
+                <div id="chatMessages" class="chat-messages">
+                    <div class="message bot-message">
+                        Hello! I'm DocuMind AI. Upload a PDF and ask me a question.
+                    </div>
+                </div>
+
+                <div id="sourceArea"></div>
+
+                <form id="chatForm" class="chat-form">
+                    <input type="text" id="questionInput"
+                           placeholder="Ask about your PDFs..."
+                           autocomplete="off" required>
+                    <button type="submit" id="sendButton">Send ➤</button>
+                </form>
+
+                <button type="button" id="clearChat" class="clear-button">
+                    🗑️ Clear Chat
+                </button>
+            </section>
+        </main>
+
+        <footer>
+            DocuMind AI | Python, Flask, Sentence Transformers &amp; Ollama
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
